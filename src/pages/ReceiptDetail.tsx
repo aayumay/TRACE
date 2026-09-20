@@ -164,16 +164,16 @@ export function ReceiptDetailPage() {
       </div>
 
       {/* Related Receipts */}
-      {related.length > 0 && (
-        <section aria-labelledby="related-heading">
-          <div className="font-ibm-mono text-[10px] tracking-[0.2em] uppercase text-accent mb-1">
-            ASSOCIATED TIMESTAMPS
-          </div>
-          <h2 id="related-heading" className="font-fraunces text-2xl font-medium text-foreground mb-4" data-testid="related-receipts">
-            Related Receipts
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" data-testid="connected-receipts">
-            {related.map(r => (
+      <section aria-labelledby="related-heading" data-testid="related-receipts">
+        <div className="font-ibm-mono text-[10px] tracking-[0.2em] uppercase text-accent mb-1">
+          ASSOCIATED TIMESTAMPS
+        </div>
+        <h2 id="related-heading" className="font-fraunces text-2xl font-medium text-foreground mb-4">
+          Related Receipts
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" data-testid="connected-receipts">
+          {related.length > 0 ? (
+            related.map(r => (
               <NavLink
                 key={r.id}
                 to={`/receipts/${r.id}`}
@@ -187,10 +187,12 @@ export function ReceiptDetailPage() {
                   <p className="font-ibm-mono text-[10px] text-muted">{r.date}</p>
                 </div>
               </NavLink>
-            ))}
-          </div>
-        </section>
-      )}
+            ))
+          ) : (
+            <p className="font-ui text-xs text-muted col-span-2 py-4">No direct co-occurring receipts discovered.</p>
+          )}
+        </div>
+      </section>
     </article>
   );
 }
