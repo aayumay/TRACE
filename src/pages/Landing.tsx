@@ -240,6 +240,7 @@ export function LandingScreen() {
               className="lg:hidden w-10 h-10 rounded-full liquid-glass flex items-center justify-center text-white relative transition-transform duration-300 active:scale-95"
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileMenuOpen}
+              data-testid="mobile-menu-button"
             >
               <div
                 className={`transition-all duration-500 ${
@@ -257,6 +258,8 @@ export function LandingScreen() {
           <div
             className="lg:hidden fixed top-[72px] left-0 right-0 z-40 bg-[#080611]/95 backdrop-blur-2xl border-y border-white/10 shadow-2xl p-6 space-y-1 pointer-events-auto animate-slide-down"
             role="navigation"
+            aria-label="Mobile navigation"
+            data-testid="mobile-navigation"
           >
             {NAV_ITEMS.map(({ to, label }) => (
               <NavLink

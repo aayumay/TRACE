@@ -176,6 +176,13 @@ export function Footer() {
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground selection:bg-accent/30 selection:text-white">
+      {/* Accessibility Skip Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-accent-foreground focus:rounded-lg focus:font-ibm-mono focus:text-xs focus:shadow-xl"
+      >
+        Skip to main content
+      </a>
       <Atmosphere />
       <Header />
       <main className="relative z-10 flex-1 pt-16 pb-12" id="main-content" role="main">

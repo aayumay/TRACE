@@ -20,18 +20,18 @@ export function useReceipts() {
 
 export function useReceiptSearch(receipts: LifeReceipt[], search: string) {
   return useMemo(() => {
-    if (!search.trim()) return receipts;
+    if (!search?.trim()) return receipts;
     const query = search.toLowerCase().trim();
     return receipts.filter((r) =>
-      r.title.toLowerCase().includes(query) ||
-      r.description.toLowerCase().includes(query) ||
-      r.category.toLowerCase().includes(query) ||
-      r.location?.name?.toLowerCase().includes(query) ||
-      r.location?.city?.toLowerCase().includes(query) ||
-      r.tags.some((t) => t.toLowerCase().includes(query)) ||
-      (r.metadata.artist?.toLowerCase().includes(query) ?? false) ||
-      (r.metadata.merchant?.toLowerCase().includes(query) ?? false) ||
-      (r.metadata.category?.toLowerCase().includes(query) ?? false)
+      (r.title?.toLowerCase().includes(query) ?? false) ||
+      (r.description?.toLowerCase().includes(query) ?? false) ||
+      (r.category?.toLowerCase().includes(query) ?? false) ||
+      (r.location?.name?.toLowerCase().includes(query) ?? false) ||
+      (r.location?.city?.toLowerCase().includes(query) ?? false) ||
+      (r.tags?.some((t) => t?.toLowerCase().includes(query)) ?? false) ||
+      (r.metadata?.artist?.toLowerCase().includes(query) ?? false) ||
+      (r.metadata?.merchant?.toLowerCase().includes(query) ?? false) ||
+      (r.metadata?.category?.toLowerCase().includes(query) ?? false)
     );
   }, [receipts, search]);
 }
