@@ -1,0 +1,279 @@
+============================================================
+TRACE — WEBRUSH DEVELOPMENT WORKFLOW
+============================================================
+
+Project:
+TRACE — Your Life, In Receipts
+
+Hackathon:
+WebRush 2026
+
+Architecture:
+Frontend-only (Zero-backend, static JSON streaming)
+
+Framework:
+React 19 + TypeScript 6 + Vite 8 (Rolldown)
+
+Styling:
+Tailwind CSS v4 (@import "tailwindcss" + @theme tokens)
+
+============================================================
+CURRENT STATUS
+============================================================
+
+Overall Progress:
+100%
+
+Current Phase:
+All Phases (Phase 1 through Phase 11 / A through V) — COMPLETE & VERIFIED.
+
+Current Task:
+Final WebRush submission audit passed. All 9 routes, 55 data-testids, data normalization, privacy protections, and build pipelines verified.
+
+Status:
+COMPLETE
+
+Last Updated:
+2026-09-20 09:30 UTC
+
+Next Action:
+Application is fully operational, verified, and ready for deployment / submission.
+
+Files created or modified in this development cycle:
+- src/components/cinematic/LandingFilm.tsx (CREATED: Deterministic 6-act scroll-stage film driven purely by scroll progress)
+- src/components/cinematic/Atmosphere.tsx (CREATED: Shared fixed depth backdrop for all pages)
+- src/components/cinematic/usePointerParallax.ts (CREATED: Cursor parallax, reduced-motion inert)
+- src/components/cinematic/CinematicReveal.tsx (CREATED: Systemic scroll-triggered entrance reveal)
+- src/lib/cineUtils.ts (CREATED: Deterministic math/PRNG helpers)
+- src/pages/Landing.tsx (REWRITTEN: Cinematic scroll shell over fixed film backdrops; nav + mobile menu + testids preserved)
+- src/components/layout/Layout.tsx (UPDATED: Atmosphere behind all inner pages)
+- src/index.css (UPDATED: Cobalt secondary token, cinematic/archival utility classes, archival card treatment)
+- src/pages/Overview.tsx (UPDATED: whileInView blur/fade/scale entrances)
+- src/pages/Receipts.tsx, Connections.tsx, Stories.tsx, StoryChapter.tsx, Journey.tsx, Insights.tsx, ReceiptDetail.tsx (UPDATED: CinematicReveal page-hero entrances)
+
+============================================================
+DATASET STATUS
+============================================================
+
+[✓] archive.zip inspected
+[✓] archive (1).zip inspected
+[✓] archive (2).zip inspected
+
+[✓] Spotify dataset normalized & verified (149,860 rows)
+[✓] Household transaction dataset normalized & verified (2,461 rows)
+[✓] India transaction dataset normalized & verified (10,267 rows, 100% preserved)
+
+[✓] Canonical source formats selected (CSV)
+[✓] Data normalization pipeline executed
+[✓] Validation layer executed (data/validation-report.json)
+[✓] Duplicate handling: 0 duplicate IDs across all 162,588 records
+[✓] Combined application data created (162,588 full / 20,581 curated runtime)
+[✓] Dataset statistics verified against raw files
+
+Dataset Validation Metrics:
+- Total Raw Records Processed: 162,588
+  - Spotify (archive-1): 149,860
+  - Household (archive-2): 2,461
+  - India Transactions (archive-3): 10,267 (100% preserved, including un-timestamped rows)
+- Unique IDs: 162,588 (100% unique, 0 duplicates)
+- Filtered Runtime Dataset: 20,581 records (100% non-music preserved + sampled music)
+- Sensitive Fields (cc_num, first, last, street, dob): Stripped at normalization, 0 exposed in UI.
+- Date Range: 2013-07-07T21:14:34.000Z to 2024-12-15T17:36:25.000Z
+
+============================================================
+MASTER TASK BOARD
+============================================================
+
+------------------------------------------------------------
+PHASE 1 — PROJECT FOUNDATION
+------------------------------------------------------------
+[✓] React 19 + dependencies installed and verified
+[✓] TypeScript 6 — zero errors (npx tsc --noEmit exits 0)
+[✓] Vite 8 + vite.config.ts with rolldown chunking
+[✓] Tailwind CSS v4 — index.css with @theme tokens
+[✓] index.html -> src/main.tsx -> App.tsx entrypoint chain
+[✓] Production build passes (npm run build exits 0 in 2.13s)
+[✓] React Router routes — all 9 routes fully functional
+
+------------------------------------------------------------
+PHASE 2 — OFFICIAL DATA INTEGRATION
+------------------------------------------------------------
+[✓] Archive inspection complete
+[✓] Schema understanding complete
+[✓] Canonical source formats selected (CSV)
+[✓] Data normalization pipeline executed
+[✓] Validation layer executed (data/validation-report.json)
+[✓] Duplicate IDs: 0 duplicates verified
+[✓] Filtered dataset served from public/data/ via async fetch
+
+------------------------------------------------------------
+PHASE 3 — DATA MODEL
+------------------------------------------------------------
+[✓] LifeReceipt TypeScript types (src/types/receipt.ts)
+[✓] Connection types & enum
+[✓] Story chapter types
+[✓] Insight types
+[✓] LifeStats types
+[✓] FilterState types
+[✓] ConstellationNode & ConstellationEdge types
+
+------------------------------------------------------------
+PHASE 4 — ANALYTICS ENGINE
+------------------------------------------------------------
+[✓] calculateLifeStats (total, active days, date range, dominant category)
+[✓] getCategoryDistribution
+[✓] getTimeOfDayPattern
+[✓] getTopLocations
+[✓] getActivityByDate
+[✓] getKeyMoments
+[✓] Formatter utilities (formatNumber, formatDate, formatTime, getRelativeTime)
+
+------------------------------------------------------------
+PHASE 5 — CONNECTION ENGINE
+------------------------------------------------------------
+[✓] Same-day connection detection
+[✓] Temporal proximity (<2h, <6h)
+[✓] Geographic & city matching
+[✓] Cross-category resonance
+[✓] Shared tag correlation
+[✓] Mathematical scoring and evidence synthesis
+
+------------------------------------------------------------
+PHASE 6 — STORY ENGINE
+------------------------------------------------------------
+[✓] Graph cluster discovery algorithm
+[✓] Dominant category and location identification
+[✓] Dynamic chapter title & summary generation
+[✓] Evidence synthesis per chapter
+
+------------------------------------------------------------
+PHASE 7 — APPLICATION SHELL / NAVIGATION
+------------------------------------------------------------
+[✓] Layout component with sticky backdrop-blur header & footer
+[✓] Responsive desktop & mobile slide-down navigation menu
+[✓] Active route highlighting
+[✓] Flat BrowserRouter routing in App.tsx
+
+------------------------------------------------------------
+PHASE 8 — PAGES (FEATURE SCREENS)
+------------------------------------------------------------
+[✓] Landing.tsx — Hero, live stats, deterministic constellation preview, CTAs
+[✓] Overview.tsx — Life stats, activity pulse, category dist, time of day, locations, moments, opening insight
+[✓] Receipts.tsx — Search, category filter chips, date filter, sort, grid/list toggle, load more pagination
+[✓] ReceiptDetail.tsx — Deep metadata dossier, duration, amount, source, tags, privacy safe, related receipts
+[✓] Connections.tsx — SVG constellation graph, node selection, edge highlighting, relationship inspector
+[✓] Stories.tsx — Evidence-discovered chapter gallery with category badges & metadata
+[✓] StoryChapter.tsx — Chapter hero, evidence list, moment timeline, previous/next navigation
+[✓] Journey.tsx — Spatial 130-month horizontal timeline, chapter markers, month inspection
+[✓] Insights.tsx — Cross-dataset pattern cards, verified evidence trails, metric badges, supporting receipt dossiers
+
+------------------------------------------------------------
+PHASE 9 — DATA LOADING HOOK
+------------------------------------------------------------
+[✓] useActivities hook (async fetch + module-level caching)
+[✓] Loading spinner & error handling states across all pages
+[✓] All 9 page screens connected to real dynamic data
+
+------------------------------------------------------------
+PHASE 10 — NORMALIZATION FIX & INTEGRITY
+------------------------------------------------------------
+[✓] Fixed duplicate IDs (SHA-256 stable composite hashing)
+[✓] Preserved all 10,267 India records
+[✓] Stripped sensitive PII fields (cc_num, first, last, street, dob)
+[✓] Generated clean public/data/lifeReceipts.filtered.json
+
+------------------------------------------------------------
+PHASE 11 — FINAL QA & VERIFICATION
+------------------------------------------------------------
+[✓] npx tsc --noEmit: 0 errors
+[✓] npm run build: 0 errors (2.13s build time)
+[✓] All 55 data-testid attributes present and verified
+[✓] Responsive design verified (320px to 1440px+)
+[✓] Keyboard accessibility & reduced motion verified
+[✓] Comprehensive README.md created
+
+============================================================
+CHANGE LOG
+============================================================
+
+------------------------------------------------------------
+[2026-09-20 07:47 UTC]
+
+TASK: Final WebRush audit & Missing Insights implementation
+STATUS: COMPLETE
+
+FILES:
+- src/pages/Insights.tsx (CREATED)
+- src/App.tsx (UPDATED: Added /insights route)
+- src/components/layout/Layout.tsx (UPDATED: Added Insights to nav)
+- src/lib/storyEngine.ts (UPDATED: Added timestamp safety to generateInsights)
+- scripts/audit-testids.cjs (CREATED: All 55 required testids verified)
+- README.md (UPDATED: Added Life Insights section)
+
+TEST:
+- npx tsc --noEmit -> exit 0 (zero errors) ✓
+- npm run build -> exit 0, 2.13s, no OOM ✓
+- node scripts/audit-testids.cjs -> 55/55 testids FOUND ✓
+- Dataset verification: 162,588 full records, 0 duplicate IDs, 0 PII leaks ✓
+
+RESULT: Full 100% audit passed. All required features genuinely exist and are verified.
+
+------------------------------------------------------------
+[2026-09-20 08:38 UTC]
+
+TASK: Cinematic Digital Archive Visual & Animation Transformation
+STATUS: COMPLETE
+
+CHANGES:
+- src/index.css: Deep space palette (near-black #080611, warm bone text #f3efe6, lavender/purple #9b6bff, subtle cobalt), Fraunces serif + IBM Plex Mono fonts, liquid-glass/accent-glass utilities, blur-fade-up/accent-pulse keyframes, and reduced-motion support.
+- src/pages/Landing.tsx: Rebuilt into a 6-act continuous cinematic scroll film:
+  * Act 01 (Receipts): Scattered to ordered archival receipt fragments.
+  * Act 02 (Time): Orbital wireframe chronometer with longitudinal statistics.
+  * Act 03 (Connections): Synaptic network with active glowing strands and graph nodes.
+  * Act 04 (Journey): Parallax horizontal temporal timeline strip.
+  * Act 05 (Stories): Overlapping archival story chapter dossiers.
+  * Act 06 (Archive): Final convergence into "TRACE — Your Life, In Receipts" with live CTAs.
+- src/components/layout/Layout.tsx: Editorial header with Fraunces wordmark, IBM Plex Mono navigation, liquid-glass pill container, mobile drawer, and archival footer.
+- src/pages/Overview.tsx, Receipts.tsx, ReceiptDetail.tsx, Connections.tsx, Stories.tsx, StoryChapter.tsx, Journey.tsx, Insights.tsx: Complete typography, text alignment, and liquid-glass card visual elevation while 100% preserving underlying business logic, hooks, routing, datasets, and testids.
+
+VERIFICATION:
+- npx tsc --noEmit -> exit 0 (zero errors) ✓
+- npm run build -> exit 0 in 1.82s ✓
+- node scripts/audit-testids.cjs -> 55/55 testids FOUND (0 missing) ✓
+
+------------------------------------------------------------
+[2026-09-20 09:30 UTC]
+
+TASK: Cinematic scroll-stage film & systemic motion language (UI-only refinements)
+STATUS: COMPLETE
+
+CHANGES:
+- src/components/cinematic/LandingFilm.tsx (CREATED): Deterministic GTAO-INK-style scroll film driving 6 acts purely from scroll progress — FragmentField canvas (shelves->archive, seeded layout), orbital wireframe chronometer, StrandField connection canvas (extend->taut->release->fade), parallax month lanes, overlapping archive dossiers, final "TRACE / Your life, in receipts." convergence with live CTAs; StageHud frame + coords; prefers-reduced-motion short-circuits all animation.
+- src/components/cinematic/Atmosphere.tsx (CREATED): shared fixed depth backdrop (floor bloom, horizon strata, ruler ticks, vignette, grain).
+- src/components/cinematic/usePointerParallax.ts (CREATED): subtle pointer/parallax (inert under reduced motion / no pointer).
+- src/components/cinematic/CinematicReveal.tsx (CREATED): scroll-triggered opacity+y+scale+blur entrance wrapper used as the systemic inner-page reveal.
+- src/lib/cineUtils.ts (CREATED): deterministic helpers (clamp01, lerp, smoothstep, easeInOutCubic, mulberry32 seeded RNG).
+- src/pages/Landing.tsx (REWRITTEN): LandingScreen becomes a scroll shell — fixed video/scrim/glow/grain backdrops, fixed glass navbar + mobile menu retained verbatim (landing-screen, explore-story-button, mobile-menu-button testids intact), film renders beneath.
+- src/components/layout/Layout.tsx (UPDATED): Atmosphere backdrop added behind all inner pages (header/mobile-menu-button/mobile-navigation/nav-* testids intact).
+- src/index.css (UPDATED): --secondary-accent cobalt token + --color-cobalt theme color; cinematic editorial utilities (.text-bone, .text-ivory-dim, .text-accent-text, .accent-italic, .bg-gradient-identity, .badge-cat, .doc-card, .doc-fade, .page-hero-kicker); archival .card/.card-elevated treatment with hairline + grain.
+- src/pages/Overview.tsx (UPDATED): all section entrances upgraded to whileInView blur+fade+scale (deterministic once-only viewport reveals).
+- src/pages/Receipts.tsx, Connections.tsx, Stories.tsx, StoryChapter.tsx, Journey.tsx, Insights.tsx, ReceiptDetail.tsx (UPDATED): page heroes wrapped in CinematicReveal (StoryChapter keeps literal data-testid="chapter-hero").
+
+VERIFICATION:
+- npx tsc --noEmit -> exit 0 (zero errors) ✓
+- npm run build -> exit 0 in 4.03s ✓
+- node scripts/audit-testids.cjs -> 55/55 testids FOUND (0 missing) ✓
+- No logic/data/hooks/routes touched — presentation only.
+
+============================================================
+FINAL VERIFICATION SUMMARY
+============================================================
+
+TypeScript Status: PASS (0 errors)
+Build Status: PASS (4.03s)
+Data Integrity: PASS (0 duplicate IDs, 100% records accounted for)
+Visual Style: CINEMATIC DIGITAL ARCHIVE (6-Act Scroll Film + Editorial Typography)
+Routes: 9 / 9 working
+Data-testids: 55 / 55 verified (0 missing)
+Project: WebRush 2026 Ready
+

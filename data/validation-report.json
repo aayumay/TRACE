@@ -1,0 +1,38 @@
+{
+  "totalReceipts": 162588,
+  "categories": [
+    "music",
+    "purchase",
+    "place",
+    "event",
+    "note",
+    "movie"
+  ],
+  "categoryCounts": {
+    "music": 149860,
+    "purchase": 4905,
+    "place": 2731,
+    "event": 27,
+    "note": 2534,
+    "movie": 2531
+  },
+  "sourceCounts": {
+    "archive-1": 149860,
+    "archive-2": 2461,
+    "archive-3": 10267
+  },
+  "dateRange": {
+    "start": "2013-07-07T21:14:34.000Z",
+    "end": "2024-12-15T17:36:25.000Z"
+  },
+  "generatedAt": "2026-09-20T07:38:36.921Z",
+  "validation": {
+    "rawRecords": {
+      "spotify": 149860,
+      "household": 2461,
+      "india": 10267
+    },
+    "duplicateIds": 0,
+    "missingTimestamps": 850
+  }
+}
