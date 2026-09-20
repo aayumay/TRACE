@@ -22,7 +22,6 @@
     "vite": "^8.3.0"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.7.0",
     "@types/three": "^0.186.0",
     "clsx": "^2.1.1",
     "csv-parser": "^3.2.1",
